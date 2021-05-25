@@ -6,18 +6,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class AnswerActivity1 extends AppCompatActivity {
+public class AnswerActivity extends AppCompatActivity {
 
     TextView tvAnswer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_answer1);
+        setContentView(R.layout.activity_answer);
         tvAnswer = findViewById(R.id.textView);
-        //tvAnswer.setText("In Second Activity");
-        Intent intentReceived = getIntent();
-        String questionSelected = intentReceived.getStringExtra("Question");
-        tvAnswer.setText(questionSelected + " anwser is: Queue");
+        Intent intendReceived = getIntent();
+
+        String question = intendReceived.getStringExtra("Question");
+        String answer = intendReceived.getStringExtra("Answer");
+        tvAnswer.setText(question + " answer is: " + answer);
+
+
     }
 }
